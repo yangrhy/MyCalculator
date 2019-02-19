@@ -1,69 +1,66 @@
 package com.example.mycalculator;
 
+import android.media.VolumeShaper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Button;
 import static android.view.View.OnClickListener;
 import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity {
-    private EditText result;
-    private ButtonClickListener getBttnClick;
-    private double numBuffer; // store num that is entered
-    private String operation;
 
+public class MainActivity extends AppCompatActivity {
+    private double NumberBf;
+    private String operation;
+    private EditText Scr;
+    private ButtonClickLisner bttnClick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        result = (EditText)findViewById(R.id.resultText);
-        result.setEnabled(false);
-        getBttnClick = new ButtonClickListener();
+        Scr = (EditText) findViewById(R.id.resultText);
+        Scr.setEnabled(false);
+        bttnClick = new ButtonClickLisner();
 
-        int viewList[] = {R.id.bttn0, R.id.bttn1, R.id.bttn2, R.id.bttn3, R.id.bttn4,
-                R.id.bttn5, R.id.bttn6, R.id.bttn7,R.id.bttn8, R.id.bttn9, R.id.bttnDec,
-                R.id.bttnAdd, R.id.bttnSub, R.id.bttnMult, R.id.bttnDiv, R.id.bttnClr,
-                R.id.measureScreen};
 
-        for (int bttn : viewList) {
+
+        int ViewList[] = {R.id.bttn0, R.id.bttn1, R.id.bttn2, R.id.bttn3, R.id.bttn4, R.id.bttn5,
+                R.id.bttn6, R.id.bttn7, R.id.bttn8, R.id.bttn9, R.id.bttnAdd, R.id.bttnSub, R.id.bttnDiv,
+                R.id.bttnMult, R.id.bttnEqual, R.id.bttnDec, R.id.bttnClr, R.id.measureScreen};
+
+        for (int bttn : ViewList)
+        {
             View v = (View) findViewById(bttn);
 
-            v.setOnClickListener(getBttnClick);
+            v.setOnClickListener(bttnClick);
         }
+    }//OnCreate
 
-    }
 
-    private class ButtonClickListener implements OnClickListener {
 
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.measureScreen:
-                    // create an intent for the measurement class
-                    Intent intent = new Intent(MainActivity.this, Measurement.class);
-                    startActivity(intent);
-                    break;
-                case R.id.bttnClr:
-                    result.setText("0");
-                    numBuffer = 0;
+    private class ButtonClickLisner implements OnClickListener
+    {
+        public void onClick (View v)
+        {
+            switch (v.getId())
+            {
+                case R.id.bttnClr :
+                    Scr.setText("0");
+                    NumberBf = 0;
                     operation = "";
                     break;
                 case R.id.bttnAdd:
                     MathFunction("+");
                     break;
-                case R.id.bttnSub:
-                    MathFunction("-");
-                    break;
-                case R.id.bttnMult:
-                    MathFunction("*");
-                    break;
-                case R.id.bttnDiv:
-                    MathFunction("/");
-                    break;
                 case R.id.bttnEqual:
-                    MathResult();
+                    mathResult();
+                    break;
+                case R.id.measureScreen:
+                    /// create a nd intenet
+                    Intent intent = new Intent(MainActivity.this, Measurement.class);
+                    startActivity(intent);
                     break;
                 case R.id.bttn0:
                 case R.id.bttn1:
@@ -79,34 +76,52 @@ public class MainActivity extends AppCompatActivity {
                     number = ((Button)v).getText().toString();
                     InputNumber(number);
                     break;
-            }
+
+
+            }//switch
+
+
+        }//onclick
+    }//ButtonClickLisner class
+
+
+    public  void MathFunction(String str)
+    {
+        NumberBf = Float.parseFloat(Scr.getText().toString());
+        operation= str;
+        Scr.setText("0");
+
+    }
+    public void mathResult()
+    {
+        float NumAf = Float.parseFloat(Scr.getText().toString());
+        double result = 0;
+        if (operation.equals("+"))
+        {
+            result = NumberBf + NumAf;
         }
-    }
-
-    private void MathFunction (String str) {
-        numBuffer = Float.parseFloat(result.getText().toString());
-        operation = str;
-        result.setText("0");
+        Scr.setText(String.valueOf(result));
 
     }
 
-    private void MathResult () {
-        float numAF = Float.parseFloat(result.getText().toString());
-        double sum = 0;
-        if (operation.equals("+")) {
-            sum = numBuffer + numAF;
-        }
-        result.setText(String.valueOf(sum));
+    public void InputNumber(String num)
+    {
+        String EnteredValue = Scr.getText().toString();
+        if (EnteredValue.equals("0"))
+            EnteredValue = "";
+
+
+        EnteredValue += num;
+        Scr.setText(EnteredValue);
 
     }
 
-    private void InputNumber (String num) {
-        String value = result.getText().toString();
-        if (value.equals("0")) {
-            value = "";
-        }
 
-        value += num;
-        result.setText(value);
-    }
-}
+
+
+
+
+
+
+
+}//MainActivity Class
