@@ -11,7 +11,7 @@ import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     private EditText result;
-    private ButtonClickListener bttnClick;
+    private ButtonClickListener getBttnClick;
     private double numBuffer; // store num that is entered
     private String operation;
 
@@ -21,16 +21,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         result = (EditText)findViewById(R.id.resultText);
         result.setEnabled(false);
+        getBttnClick = new ButtonClickListener();
 
         int viewList[] = {R.id.bttn0, R.id.bttn1, R.id.bttn2, R.id.bttn3, R.id.bttn4,
                 R.id.bttn5, R.id.bttn6, R.id.bttn7,R.id.bttn8, R.id.bttn9, R.id.bttnDec,
                 R.id.bttnAdd, R.id.bttnSub, R.id.bttnMult, R.id.bttnDiv, R.id.bttnClr,
                 R.id.measureScreen};
 
-        for (int bttn:viewList) {
+        for (int bttn : viewList) {
             View v = (View) findViewById(bttn);
 
-            v.setOnClickListener(bttnClick);
+            v.setOnClickListener(getBttnClick);
         }
 
     }
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     result.setText("0");
                     numBuffer = 0;
                     operation = "";
+                    break;
                 case R.id.bttnAdd:
                     MathFunction("+");
                     break;
@@ -73,11 +75,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.bttn7:
                 case R.id.bttn8:
                 case R.id.bttn9:
-                    String num;
-                    num = ((Button) v).getText().toString();
-                    InputNumber(num);
-                    break;
-                default:
+                    String number ;
+                    number = ((Button)v).getText().toString();
+                    InputNumber(number);
                     break;
             }
         }
@@ -103,11 +103,10 @@ public class MainActivity extends AppCompatActivity {
     private void InputNumber (String num) {
         String value = result.getText().toString();
         if (value.equals("0")) {
-            return;
+            value = "";
         }
-        else {
-            value += num;
-        }
+
+        value += num;
         result.setText(value);
     }
 }
