@@ -1,11 +1,9 @@
 package com.example.mycalculator;
 
-import android.media.VolumeShaper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Button;
 import static android.view.View.OnClickListener;
 import android.content.Intent;
@@ -14,15 +12,15 @@ import android.content.Intent;
 public class MainActivity extends AppCompatActivity {
     private double NumberBf;
     private String operation;
-    private EditText Scr;
-    private ButtonClickLisner bttnClick;
+    private EditText calculation;
+    private ButtonClickListener bttnClick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Scr = (EditText) findViewById(R.id.resultText);
-        Scr.setEnabled(false);
-        bttnClick = new ButtonClickLisner();
+        calculation = (EditText) findViewById(R.id.resultText);
+        calculation.setEnabled(false);
+        bttnClick = new ButtonClickListener();
 
 
 
@@ -40,27 +38,46 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private class ButtonClickLisner implements OnClickListener
+    private class ButtonClickListener implements OnClickListener
     {
         public void onClick (View v)
         {
             switch (v.getId())
             {
                 case R.id.bttnClr :
-                    Scr.setText("0");
+                    calculation.setText("0");
                     NumberBf = 0;
                     operation = "";
                     break;
                 case R.id.bttnAdd:
                     MathFunction("+");
                     break;
+                case R.id.bttnSub:
+                    MathFunction("-");
+                    break;
+                case R.id.bttnMult:
+                    MathFunction("*");
+                    break;
+                case R.id.bttnDiv:
+                    MathFunction("/");
+                    break;
                 case R.id.bttnEqual:
-                    mathResult();
+                    MathResult();
                     break;
                 case R.id.measureScreen:
                     /// create a nd intenet
                     Intent intent = new Intent(MainActivity.this, Measurement.class);
                     startActivity(intent);
+                    break;
+                case R.id.bttnDec:
+                    String result = calculation.getText().toString();
+                    if (checkForDec() == false)
+                    {
+                        result += '.';
+                    }
+                    else
+                        break;
+                    calculation.setText(result);
                     break;
                 case R.id.bttn0:
                 case R.id.bttn1:
@@ -82,40 +99,64 @@ public class MainActivity extends AppCompatActivity {
 
 
         }//onclick
-    }//ButtonClickLisner class
+    }//ButtonClickListener class
 
 
     public  void MathFunction(String str)
     {
-        NumberBf = Float.parseFloat(Scr.getText().toString());
+        NumberBf = Float.parseFloat(calculation.getText().toString());
         operation= str;
-        Scr.setText("0");
+        calculation.setText("0");
 
     }
-    public void mathResult()
-    {
-        float NumAf = Float.parseFloat(Scr.getText().toString());
+    public void MathResult() {
+        float NumAf = Float.parseFloat(calculation.getText().toString());
         double result = 0;
-        if (operation.equals("+"))
+        switch (operation)
         {
-            result = NumberBf + NumAf;
+            case "+":
+                result = NumberBf + NumAf;
+                break;
+            case "-":
+                result = NumberBf - NumAf;
+                break;
+            case "*":
+                result = NumberBf * NumAf;
+                break;
+            case "/":
+                result = NumberBf / NumAf;
+                break;
         }
-        Scr.setText(String.valueOf(result));
+
+        calculation.setText(String.valueOf(result));
 
     }
 
     public void InputNumber(String num)
     {
-        String EnteredValue = Scr.getText().toString();
-        if (EnteredValue.equals("0"))
-            EnteredValue = "";
+        String sum = calculation.getText().toString();
+        if (sum.equals("0"))
+            sum = "";
 
-
-        EnteredValue += num;
-        Scr.setText(EnteredValue);
+        sum += num;
+        calculation.setText(sum);
 
     }
 
+    // only allows one decimal to be used so user can't input num.num.num.num etc.
+    public boolean checkForDec() {
+        String currentNumString = calculation.getText().toString();
+        char[] numCharArray = currentNumString.toCharArray();
+
+        for (char i : numCharArray)
+        {
+            if (i == '.')
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 
