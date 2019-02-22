@@ -9,13 +9,15 @@ import static android.view.View.OnClickListener;
 import android.content.Intent;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
     private double NumberBf;
     private String operation;
     private EditText calculation;
     private ButtonClickListener bttnClick;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         calculation = (EditText) findViewById(R.id.resultText);
@@ -114,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
         calculation.setText("0");
 
     }
-    public void MathResult() {
+    public void MathResult()
+    {
         float NumAf = Float.parseFloat(calculation.getText().toString());
         double result = 0;
         switch (operation)
@@ -149,7 +152,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // only allows one decimal to be used so user can't input num.num.num.num etc.
-    public boolean checkForDec() {
+    public boolean checkForDec()
+    {
         String currentNumString = calculation.getText().toString();
         char[] numCharArray = currentNumString.toCharArray();
 

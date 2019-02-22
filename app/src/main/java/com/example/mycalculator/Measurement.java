@@ -1,5 +1,6 @@
 package com.example.mycalculator;
 
+import android.icu.util.Measure;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class Measurement extends AppCompatActivity {
+public class Measurement extends AppCompatActivity
+{
     private double NumberBf;
     private EditText calculation;
     private ButtonClickListener bttnClick;
@@ -21,7 +23,8 @@ public class Measurement extends AppCompatActivity {
     private RadioButton radioButtonUnit2;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_measurement);
         calculation = (EditText) findViewById(R.id.resultText);
@@ -53,6 +56,7 @@ public class Measurement extends AppCompatActivity {
                     break;
                 case R.id.bttnConvert:
                     Convert();
+                    break;
                 case R.id.calcScreen:
                     /// create a new intent
                     Intent intent = new Intent(Measurement.this, MainActivity.class);
@@ -103,7 +107,8 @@ public class Measurement extends AppCompatActivity {
     }
 
     // only allows one decimal to be used so user can't input num.num.num.num etc.
-    public boolean checkForDec() {
+    public boolean checkForDec()
+    {
         String currentNumString = calculation.getText().toString();
         char[] numCharArray = currentNumString.toCharArray();
 
@@ -118,18 +123,96 @@ public class Measurement extends AppCompatActivity {
     }
 
     public void Convert ()
+    {
+        radioGroupUnit1 = (RadioGroup)findViewById(R.id.radioGroup1);
+        radioGroupUnit2 = (RadioGroup)findViewById(R.id.radioGroup2);
+        int selectedId1 = radioGroupUnit1.getCheckedRadioButtonId();
+        int selectedId2 = radioGroupUnit2.getCheckedRadioButtonId();
+
+        radioButtonUnit1 = (RadioButton) findViewById(selectedId1);
+        radioButtonUnit2 = (RadioButton) findViewById(selectedId2);
+
+        String rbId1 = radioButtonUnit1.getText().toString();
+        String rbId2 = radioButtonUnit2.getText().toString();
+
+        Toast.makeText(Measurement.this, rbId1 + rbId2, Toast.LENGTH_LONG).show();
+
+        if ((rbId1 == "Feet") && (rbId2 == "Inches"))
         {
-            radioGroupUnit1 = (RadioGroup)findViewById(R.id.radioGroup1);
-            radioGroupUnit2 = (RadioGroup)findViewById(R.id.radioGroup2);
-            int selectedId1 = radioGroupUnit1.getCheckedRadioButtonId();
-            int selectedId2 = radioGroupUnit2.getCheckedRadioButtonId();
-
-            radioButtonUnit1 = (RadioButton) findViewById(selectedId1);
-            radioButtonUnit2 = (RadioButton) findViewById(selectedId2);
-
-            Toast.makeText(Measurement.this, radioButtonUnit2.getText(), Toast.LENGTH_SHORT).show();
-
-            float NumAf = Float.parseFloat(calculation.getText().toString());
-
+            FeetToInches();
         }
+        else if ((rbId1 == "Feet") && (rbId2 == "Centimeters"))
+        {
+            FeetToCm();
+        }
+        else if ((rbId1 == "Inches") && (rbId2 == "Feet"))
+        {
+            InchesToFeet();
+        }
+        else if ((rbId1 == "Inches") && (rbId2 == "Centimeters"))
+        {
+            InchesToCm();
+        }
+        else if ((rbId1 == "Centimeters") && (rbId2 == "Feet"))
+        {
+            CmToFeet();
+        }
+        else if ((rbId1 == "Centimeters") && (rbId2 == "Inches"))
+        {
+            CmToInches();
+        }
+        else
+        {
+            Toast.makeText(Measurement.this, "You selected the same units", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void FeetToInches ()
+    {
+        float NumAf = Float.parseFloat(calculation.getText().toString());
+
+        NumAf *= 12;
+        calculation.setText(String.valueOf(NumAf));
+    }
+
+    public void FeetToCm ()
+    {
+        float NumAf = Float.parseFloat(calculation.getText().toString());
+
+        NumAf *= 30.48;
+        calculation.setText(String.valueOf(NumAf));
+    }
+
+    public void InchesToFeet ()
+    {
+        float NumAf = Float.parseFloat(calculation.getText().toString());
+
+        NumAf /= 12;
+        calculation.setText(String.valueOf(NumAf));
+    }
+
+    public void InchesToCm ()
+    {
+        float NumAf = Float.parseFloat(calculation.getText().toString());
+
+        NumAf *= 2.54;
+        calculation.setText(String.valueOf(NumAf));
+    }
+
+    public void CmToFeet ()
+    {
+        float NumAf = Float.parseFloat(calculation.getText().toString());
+
+        NumAf /= 30.48;
+        calculation.setText(String.valueOf(NumAf));
+    }
+
+    public void CmToInches ()
+    {
+        float NumAf = Float.parseFloat(calculation.getText().toString());
+
+        NumAf /= 2.54;
+        calculation.setText(String.valueOf(NumAf));
+    }
 }
