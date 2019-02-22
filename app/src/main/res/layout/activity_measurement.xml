@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorAccent"
     tools:context=".MainActivity">
 
     <EditText
@@ -17,8 +17,10 @@
         android:layout_marginEnd="20dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
+        android:textColor="@color/colorText"
         android:text="0"
-        android:textAlignment="textEnd" />
+        android:textAlignment="textEnd"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/bttn1"
@@ -26,8 +28,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="359dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="494dp"
         android:background="@color/colorButtons"
         android:text="1" />
 
@@ -37,8 +39,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="359dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="494dp"
         android:background="@color/colorButtons"
         android:text="2" />
 
@@ -48,8 +50,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="180dp"
-        android:layout_marginTop="359dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="494dp"
         android:background="@color/colorButtons"
         android:text="3" />
 
@@ -59,8 +61,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="419dp"
         android:background="@color/colorButtons"
         android:text="4" />
 
@@ -70,8 +72,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="419dp"
         android:background="@color/colorButtons"
         android:text="5" />
 
@@ -81,8 +83,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="180dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="419dp"
         android:background="@color/colorButtons"
         android:text="6" />
 
@@ -92,8 +94,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="209dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="344dp"
         android:background="@color/colorButtons"
         android:text="7" />
 
@@ -103,8 +105,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="209dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="344dp"
         android:background="@color/colorButtons"
         android:text="8" />
 
@@ -114,8 +116,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="180dp"
-        android:layout_marginTop="209dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="344dp"
         android:background="@color/colorButtons"
         android:text="9" />
 
@@ -125,30 +127,30 @@
         android:layout_height="62dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="434dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="569dp"
         android:background="@color/colorButtons"
         android:text="0" />
 
     <Button
-        android:id="@+id/bttnEqual"
-        android:layout_width="68dp"
-        android:layout_height="210dp"
+        android:id="@+id/bttnConvert"
+        android:layout_width="123dp"
+        android:layout_height="204dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="333dp"
-        android:layout_marginTop="283dp"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="421dp"
         android:background="@color/colorButtons"
-        android:text="=" />
+        android:text="Convert" />
 
     <Button
         android:id="@+id/bttnClr"
-        android:layout_width="66dp"
-        android:layout_height="60dp"
+        android:layout_width="127dp"
+        android:layout_height="61dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="335dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginStart="263dp"
+        android:layout_marginTop="344dp"
         android:background="@color/colorButtons"
         android:text="Clear" />
 
@@ -158,63 +160,104 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="180dp"
-        android:layout_marginTop="434dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="569dp"
         android:background="@color/colorButtons"
         android:text="." />
 
     <Button
-        android:id="@+id/bttnAdd"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="434dp"
-        android:background="@color/colorButtons"
-        android:text="+" />
-
-    <Button
-        android:id="@+id/bttnSub"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="359dp"
-        android:background="@color/colorButtons"
-        android:text="-" />
-
-    <Button
-        android:id="@+id/bttnMult"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="209dp"
-        android:background="@color/colorButtons"
-        android:text="*" />
-
-    <Button
-        android:id="@+id/bttnDiv"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="284dp"
-        android:background="@color/colorButtons"
-        android:text="/" />
-
-    <Button
-        android:id="@+id/measureScreen"
-        android:layout_width="180dp"
+        android:id="@+id/calcScreen"
+        android:layout_width="154dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="228dp"
+        android:layout_marginStart="257dp"
         android:layout_marginTop="0dp"
         android:background="@color/colorButtons"
-        android:text="Measurement Screen" />
+        android:text="Calculator" />
+
+    <Button
+        android:id="@+id/tipCalc"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorButtons"
+        android:text="Tip Calculator" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="205dp"
+        android:background="@color/colorButtons" >
+
+        <RadioButton
+            android:id="@+id/radioButtonFeet1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rbFeet"
+            android:textColor="@color/colorText"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioButtonInches1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rbInch"
+            android:textColor="@color/colorText" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCM1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rbCM"
+            android:textColor="@color/colorText"/>
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="205dp"
+        android:background="@color/colorButtons" >
+
+        <RadioButton
+            android:id="@+id/radioButtonFeet2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rbFeet"
+            android:textColor="@color/colorText"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonInches2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rbInch"
+            android:textColor="@color/colorText"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCM2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rbCM"
+            android:textColor="@color/colorText"/>
+
+    </RadioGroup>
 </RelativeLayout>

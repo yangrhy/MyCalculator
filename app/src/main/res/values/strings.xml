@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">MyCalculator</string>
     <string name="title_activity_measurement">Measurement Calculator</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="tip_percentage">15%</string>
+    <string name="tip">Tip</string>
+    <string name="total">Total</string>
+    <string name="calculator">Calculator</string>
+    <string name="measurement">Measurement Calculator</string>
+    <string name="rbFeet">Feet</string>
+    <string name="rbInch">Inches</string>
+    <string name="rbCM">Centimeters</string>
 </resources>

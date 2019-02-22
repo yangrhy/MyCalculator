@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         int ViewList[] = {R.id.bttn0, R.id.bttn1, R.id.bttn2, R.id.bttn3, R.id.bttn4, R.id.bttn5,
                 R.id.bttn6, R.id.bttn7, R.id.bttn8, R.id.bttn9, R.id.bttnAdd, R.id.bttnSub, R.id.bttnDiv,
-                R.id.bttnMult, R.id.bttnEqual, R.id.bttnDec, R.id.bttnClr, R.id.measureScreen};
+                R.id.bttnMult, R.id.bttnEqual, R.id.bttnDec, R.id.bttnClr, R.id.measureScreen, R.id.tipCalc};
 
         for (int bttn : ViewList)
         {
@@ -65,9 +65,14 @@ public class MainActivity extends AppCompatActivity {
                     MathResult();
                     break;
                 case R.id.measureScreen:
-                    /// create a nd intenet
+                    /// create a new intent
                     Intent intent = new Intent(MainActivity.this, Measurement.class);
                     startActivity(intent);
+                    break;
+                case R.id.tipCalc:
+                    /// create a new intent
+                    Intent intentTip = new Intent(MainActivity.this, TipCalculator.class);
+                    startActivity(intentTip);
                     break;
                 case R.id.bttnDec:
                     String result = calculation.getText().toString();
