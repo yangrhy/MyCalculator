@@ -135,29 +135,27 @@ public class Measurement extends AppCompatActivity
         String rbId1 = radioButtonUnit1.getText().toString();
         String rbId2 = radioButtonUnit2.getText().toString();
 
-        Toast.makeText(Measurement.this, rbId1 + rbId2, Toast.LENGTH_LONG).show();
-
-        if ((rbId1 == "Feet") && (rbId2 == "Inches"))
+        if ((rbId1.equals("Feet")) && (rbId2.equals("Inches")))
         {
             FeetToInches();
         }
-        else if ((rbId1 == "Feet") && (rbId2 == "Centimeters"))
+        else if ((rbId1.equals("Feet")) && (rbId2.equals("Centimeters")))
         {
             FeetToCm();
         }
-        else if ((rbId1 == "Inches") && (rbId2 == "Feet"))
+        else if ((rbId1.equals("Inches")) && (rbId2.equals("Feet")))
         {
             InchesToFeet();
         }
-        else if ((rbId1 == "Inches") && (rbId2 == "Centimeters"))
+        else if ((rbId1.equals("Inches")) && (rbId2.equals("Centimeters")))
         {
             InchesToCm();
         }
-        else if ((rbId1 == "Centimeters") && (rbId2 == "Feet"))
+        else if ((rbId1.equals("Centimeters")) && (rbId2.equals("Feet")))
         {
             CmToFeet();
         }
-        else if ((rbId1 == "Centimeters") && (rbId2 == "Inches"))
+        else if ((rbId1.equals("Centimeters")) && (rbId2.equals("Inches")))
         {
             CmToInches();
         }

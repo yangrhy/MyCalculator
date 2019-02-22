@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
 
             v.setOnClickListener(bttnClick);
         }
-    }//OnCreate
+    }
 
 
 

@@ -4,10 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.widget.Button;
+import android.content.Intent;
 import java.text.NumberFormat; //provides numeric formatting capabilities, such as locale-specific currency and percentage formats
 
 public class TipCalculator extends AppCompatActivity {
@@ -19,6 +22,7 @@ public class TipCalculator extends AppCompatActivity {
     private TextView percentTextView;
     private TextView tipTextView;
     private TextView totalTextView;
+    private ClickButton bttnClick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +42,38 @@ public class TipCalculator extends AppCompatActivity {
         // set percentSeekBar's OnSeekBarChangeListener
         SeekBar percentSeekBar = (SeekBar) findViewById(R.id.percentSeekBar);
         percentSeekBar.setOnSeekBarChangeListener(seekBarListener);
+
+        int buttons[] = {R.id.measureScreen, R.id.calcScreen};
+
+        for (int bttn : buttons)
+        {
+            View v = (View) findViewById(bttn);
+
+            v.setOnClickListener(bttnClick);
+        }
     }
-    private void calculate() {
+    private class ClickButton implements Button.OnClickListener
+    {
+        public void onClick (View v)
+        {
+            switch (v.getId())
+            {
+                case R.id.calcScreen:
+                    /// create a new intent
+                    Intent intent = new Intent(TipCalculator.this, MainActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.tipCalc:
+                    /// create a new intent
+                    Intent intentTip = new Intent(TipCalculator.this, Measurement.class);
+                    startActivity(intentTip);
+                    break;
+            }
+        }
+    }
+
+    private void calculate()
+    {
         // format percent and display in percentTextView
         percentTextView.setText(percentFormat.format(percent));
 
@@ -71,7 +105,8 @@ public class TipCalculator extends AppCompatActivity {
             };
 
     // listener object for the EditText's text-changed events
-    private final TextWatcher amountEditTextWatcher = new TextWatcher() {
+    private final TextWatcher amountEditTextWatcher = new TextWatcher()
+    {
         // called when the user modifies the bill amount
         @Override
         public void onTextChanged(CharSequence s, int start,
