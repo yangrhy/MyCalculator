@@ -218,7 +218,7 @@
         android:layout_marginStart="251dp"
         android:layout_marginTop="0dp"
         android:background="@color/colorButtons"
-        android:text="Measurement Screen" />
+        android:text="Measurement Calculator" />
 
     <Button
         android:id="@+id/tipCalc"

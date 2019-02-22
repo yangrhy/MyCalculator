@@ -22,12 +22,13 @@ public class TipCalculator extends AppCompatActivity {
     private TextView percentTextView;
     private TextView tipTextView;
     private TextView totalTextView;
-    private ClickButton bttnClick;
+    //private ClickButton bttnClick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_calculator);
+        //bttnClick = new ClickButton();
 
         amountTextView = (TextView) findViewById(R.id.amountTextView);
         percentTextView = (TextView) findViewById(R.id.percentTextView);
@@ -42,7 +43,7 @@ public class TipCalculator extends AppCompatActivity {
         // set percentSeekBar's OnSeekBarChangeListener
         SeekBar percentSeekBar = (SeekBar) findViewById(R.id.percentSeekBar);
         percentSeekBar.setOnSeekBarChangeListener(seekBarListener);
-
+/*
         int buttons[] = {R.id.measureScreen, R.id.calcScreen};
 
         for (int bttn : buttons)
@@ -50,8 +51,9 @@ public class TipCalculator extends AppCompatActivity {
             View v = (View) findViewById(bttn);
 
             v.setOnClickListener(bttnClick);
-        }
+        }*/
     }
+    /*
     private class ClickButton implements Button.OnClickListener
     {
         public void onClick (View v)
@@ -63,7 +65,7 @@ public class TipCalculator extends AppCompatActivity {
                     Intent intent = new Intent(TipCalculator.this, MainActivity.class);
                     startActivity(intent);
                     break;
-                case R.id.tipCalc:
+                case R.id.measureScreen:
                     /// create a new intent
                     Intent intentTip = new Intent(TipCalculator.this, Measurement.class);
                     startActivity(intentTip);
@@ -71,7 +73,7 @@ public class TipCalculator extends AppCompatActivity {
             }
         }
     }
-
+*/
     private void calculate()
     {
         // format percent and display in percentTextView

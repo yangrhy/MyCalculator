@@ -1,12 +1,11 @@
 package com.example.mycalculator;
 
-import android.icu.util.Measure;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
-import static android.view.View.OnClickListener;
+import android.view.View.OnClickListener;
 import android.content.Intent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -91,7 +90,6 @@ public class Measurement extends AppCompatActivity
                     number = ((Button)v).getText().toString();
                     InputNumber(number);
                     break;
-
             }
         }
     }
