@@ -92,20 +92,4 @@
         android:padding="@dimen/textview_padding"
         android:elevation="@dimen/elevation"/>
 
-    <Button
-        android:id="@+id/calcScreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/calculator"
-        android:gravity="center"
-        android:background="@color/colorButtons" />
-
-    <Button
-        android:id="@+id/measure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/measurement"
-        android:gravity="center"
-        android:background="@color/colorButtons" />
-
 </GridLayout>

@@ -33,7 +33,7 @@ public class Measurement extends AppCompatActivity
 
         int numButtonArray[] = {R.id.bttn0, R.id.bttn1, R.id.bttn2, R.id.bttn3, R.id.bttn4, R.id.bttn5,
                 R.id.bttn6, R.id.bttn7, R.id.bttn8, R.id.bttn9, R.id.bttnConvert, R.id.bttnDec,
-                R.id.bttnClr, R.id.calcScreen, R.id.tipCalc};
+                R.id.bttnClr};
 
         for (int bttn : numButtonArray)
         {
@@ -55,16 +55,6 @@ public class Measurement extends AppCompatActivity
                     break;
                 case R.id.bttnConvert:
                     Convert();
-                    break;
-                case R.id.calcScreen:
-                    /// create a new intent
-                    Intent intent = new Intent(Measurement.this, MainActivity.class);
-                    startActivity(intent);
-                    break;
-                case R.id.tipCalc:
-                    /// create a new intent
-                    Intent intentTip = new Intent(Measurement.this, TipCalculator.class);
-                    startActivity(intentTip);
                     break;
                 case R.id.bttnDec:
                     String result = calculation.getText().toString();

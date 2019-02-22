@@ -165,28 +165,6 @@
         android:background="@color/colorButtons"
         android:text="." />
 
-    <Button
-        android:id="@+id/calcScreen"
-        android:layout_width="154dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="257dp"
-        android:layout_marginTop="0dp"
-        android:background="@color/colorButtons"
-        android:text="Calculator" />
-
-    <Button
-        android:id="@+id/tipCalc"
-        android:layout_width="138dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:background="@color/colorButtons"
-        android:text="Tip Calculator" />
-
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
